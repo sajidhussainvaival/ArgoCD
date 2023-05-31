@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: solar-app
+  namespace: solar
+spec:
+  source:
+    repoURL: https://github.com/zohaib6015/ARGO-2.git
+    path: ./solar-system/solar-app.yaml
+    targetRevision: main
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: solar
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  project: default
+  notifications:
+    - name: slack
+      type: Slack
+      server: https://slack.com
+      channel: quality
+      token: xoxb-5285568734055-5293603477158-TrDak69d1gSXLCRzhchRQAWA

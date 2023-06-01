@@ -12,5 +12,5 @@ spec:
     nodePort: 30333
   selector:
     app: solar-system
-  #type: LoadBalancer 
-   type: NodePort
+  type: LoadBalancer 
+  #type: NodePort
